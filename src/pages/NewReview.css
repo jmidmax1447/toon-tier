@@ -1,0 +1,75 @@
+.tt-review-form-wrap {
+  max-width: 600px;
+}
+
+.tt-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 1.75rem;
+}
+
+/* Stack field labels with a bit of breathing room above */
+.tt-review-form .tt-field-label {
+  margin-top: 1rem;
+}
+
+.tt-review-form .tt-field-label:first-of-type {
+  margin-top: 0;
+}
+
+.tt-field-optional {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: rgba(255, 243, 240, 0.35);
+}
+
+/* Textarea */
+.tt-textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+/* Watch-status pill buttons */
+.tt-status-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0.35rem 0 0.25rem;
+}
+
+.tt-status-btn {
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255, 243, 240, 0.15);
+  background: transparent;
+  color: rgba(255, 243, 240, 0.55);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.tt-status-btn:hover {
+  border-color: rgba(255, 243, 240, 0.4);
+  color: var(--shell);
+}
+
+.tt-status-btn-active {
+  border-color: var(--aqua);
+  color: var(--aqua);
+  background: rgba(0, 212, 255, 0.08);
+}
+
+/* Form footer */
+.tt-review-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 243, 240, 0.08);
+}

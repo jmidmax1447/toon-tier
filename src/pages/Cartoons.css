@@ -1,0 +1,291 @@
+/* ── Search bar ── */
+.tt-search-bar {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255, 243, 240, 0.18);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 243, 240, 0.04);
+  transition: border-color 0.15s;
+}
+
+.tt-search-bar:focus-within {
+  border-color: rgba(255, 243, 240, 0.35);
+}
+
+.tt-search-mode-select {
+  background: rgba(255, 243, 240, 0.07);
+  border: none;
+  border-right: 1px solid rgba(255, 243, 240, 0.12);
+  border-radius: 0;
+  color: var(--shell);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.55rem 2rem 0.55rem 0.9rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(255,243,240,0.4)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-color: rgba(255, 243, 240, 0.07);
+}
+
+.tt-search-mode-select:focus { outline: none; }
+
+.tt-search-mode-select option {
+  background: #1a1a2e;
+  color: var(--shell);
+}
+
+.tt-search-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem;
+}
+
+.tt-search-icon {
+  font-size: 0.9rem;
+  opacity: 0.45;
+  flex-shrink: 0;
+}
+
+.tt-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--shell);
+  font-size: 0.92rem;
+  padding: 0.55rem 0;
+  outline: none;
+}
+
+.tt-search-input::placeholder { color: rgba(255, 243, 240, 0.3); }
+
+/* hide browser's native clear button */
+.tt-search-input::-webkit-search-cancel-button { display: none; }
+
+.tt-search-clear {
+  background: none;
+  border: none;
+  color: rgba(255, 243, 240, 0.35);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.tt-search-clear:hover { color: rgba(255, 243, 240, 0.7); }
+
+/* ── User search results ── */
+.tt-user-results {
+  margin-bottom: 1.5rem;
+}
+
+.tt-user-result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tt-user-result-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 243, 240, 0.03);
+  border: 1px solid rgba(255, 243, 240, 0.08);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.tt-user-result-row:hover {
+  border-color: rgba(255, 243, 240, 0.2);
+  background: rgba(255, 243, 240, 0.06);
+}
+
+.tt-user-result-name {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--shell);
+}
+
+.tt-user-result-arrow {
+  font-size: 1rem;
+  color: rgba(255, 243, 240, 0.25);
+}
+
+/* ── Filter bar ── */
+.tt-cartoon-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tt-filter-select {
+  background: rgba(255, 243, 240, 0.05);
+  border: 1px solid rgba(255, 243, 240, 0.14);
+  border-radius: var(--radius);
+  color: var(--shell);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.38rem 2rem 0.38rem 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(255,243,240,0.4)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+}
+
+.tt-filter-select:hover,
+.tt-filter-select:focus {
+  border-color: rgba(255, 243, 240, 0.3);
+  outline: none;
+}
+
+.tt-filter-select option {
+  background: #1a1a2e;
+  color: var(--shell);
+}
+
+.tt-filter-summary {
+  font-size: 0.8rem;
+  color: rgba(255, 243, 240, 0.4);
+  margin: -0.25rem 0 1rem;
+  font-weight: 600;
+}
+
+/* ── Average rating badge on card ── */
+.tt-cartoon-avg-rating {
+  font-size: 0.75rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+
+.tt-cartoon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.tt-cartoon-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 243, 240, 0.04);
+  border: 1px solid rgba(255, 243, 240, 0.09);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.tt-cartoon-card:hover {
+  border-color: rgba(255, 243, 240, 0.22);
+  transform: translateY(-3px);
+}
+
+/* ── Cover image / placeholder ── */
+.tt-cartoon-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 243, 240, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tt-cartoon-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tt-cartoon-cover-placeholder {
+  font-size: 2.5rem;
+  opacity: 0.3;
+}
+
+/* ── Detail page hero layout ── */
+.tt-cartoon-detail-hero {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tt-cartoon-cover--hero {
+  width: 280px;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 243, 240, 0.09);
+}
+
+.tt-cartoon-detail-meta {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* ── Card body ── */
+.tt-cartoon-info {
+  padding: 1rem 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.tt-cartoon-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--shell);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.tt-cartoon-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tt-cartoon-genre {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--aqua);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 20px;
+  padding: 0.15rem 0.6rem;
+}
+
+.tt-cartoon-year {
+  font-size: 0.75rem;
+  color: rgba(255, 243, 240, 0.35);
+  font-weight: 600;
+}
+
+.tt-cartoon-desc {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(255, 243, 240, 0.5);
+  margin: 0.2rem 0 0;
+}

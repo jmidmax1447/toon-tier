@@ -1,0 +1,9 @@
+/* Hero CTA buttons — used on the Home page */
+
+.tt-hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.25rem;
+}

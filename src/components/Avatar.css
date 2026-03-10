@@ -1,0 +1,20 @@
+/* Shared avatar styles — used by Avatar component, Profile, PublicProfile */
+.tt-avatar-img {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 243, 240, 0.12);
+  display: block;
+}
+
+.tt-avatar-placeholder {
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--aqua));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: -1px;
+}

@@ -1,0 +1,140 @@
+.tt-stats-panel {
+  background: rgba(255, 243, 240, 0.03);
+  border: 1px solid rgba(255, 243, 240, 0.09);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── 4-col stat grid ── */
+.tt-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .tt-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Individual stat card ── */
+.tt-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 1rem 0.5rem;
+  background: rgba(255, 243, 240, 0.04);
+  border: 1px solid rgba(255, 243, 240, 0.07);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.tt-stat-icon  { font-size: 1.4rem; line-height: 1; }
+
+.tt-stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--shell);
+  letter-spacing: -1px;
+}
+
+.tt-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 243, 240, 0.4);
+}
+
+/* accent variants */
+.tt-stat-card-gold .tt-stat-value { color: var(--gold); }
+.tt-stat-card-aqua .tt-stat-value { color: var(--aqua); }
+
+/* ── Dropped aside ── */
+.tt-stats-dropped {
+  font-size: 0.82rem;
+  color: rgba(255, 243, 240, 0.35);
+  margin: 0 0 1rem;
+  padding-left: 0.25rem;
+}
+
+/* ── Most reviewed genre row ── */
+.tt-stats-genre {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 101, 194, 0.05);
+  border: 1px solid rgba(255, 101, 194, 0.18);
+  border-radius: 14px;
+}
+
+.tt-stats-genre-icon { font-size: 1.75rem; flex-shrink: 0; }
+
+.tt-stats-genre-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255, 101, 194, 0.7);
+}
+
+.tt-stats-genre-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--shell);
+}
+
+.tt-stats-genre-count {
+  font-size: 0.75rem;
+  color: rgba(255, 243, 240, 0.4);
+  font-weight: 600;
+}
+
+/* ── Top-rated row ── */
+.tt-stats-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(253, 225, 45, 0.05);
+  border: 1px solid rgba(253, 225, 45, 0.15);
+  border-radius: 14px;
+}
+
+.tt-stats-top-trophy { font-size: 1.75rem; flex-shrink: 0; }
+
+.tt-stats-top-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.tt-stats-top-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(253, 225, 45, 0.6);
+}
+
+.tt-stats-top-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--shell);
+}
+
+/* ── Mini read-only stars ── */
+.tt-mini-stars { display: inline-flex; gap: 0.05rem; }
+
+.tt-mini-star {
+  font-size: 0.9rem;
+  color: rgba(255, 243, 240, 0.15);
+}
+
+.tt-mini-star-on { color: var(--gold); }

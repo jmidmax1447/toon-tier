@@ -1,48 +1,103 @@
-import './App.css';
+import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
-function App() {
+import Home        from './pages/Home';
+import Login       from './pages/Login';
+import Signup      from './pages/Signup';
+import Cartoons    from './pages/Cartoons';
+import CartoonDetail from './pages/CartoonDetail';
+import NewReview   from './pages/NewReview';
+import EditReview  from './pages/EditReview';
+import Profile     from './pages/Profile';
+import PublicProfile from './pages/PublicProfile';
+import NotFound    from './pages/NotFound';
+
+import './App.css';
+import './pages/Pages.css';
+import './pages/AuthPages.css';
+import './pages/Cartoons.css';
+
+function Nav() {
+  const { user, loading, signOut } = useAuth();
+
+  return (
+    <nav className="tt-nav">
+      <Link to="/" className="tt-nav-logo">
+        Toon<span className="tt-nav-logo-accent">Tier</span>
+      </Link>
+
+      <div className="tt-nav-links">
+        <NavLink to="/cartoons" className="tt-nav-link">Cartoons</NavLink>
+
+        {/* Suppress auth links until session is resolved to prevent flicker */}
+        {!loading && (user ? (
+          <>
+            <NavLink to="/profile" className="tt-nav-link">Profile</NavLink>
+            <button
+              className="tt-btn tt-btn-ghost tt-btn-sm"
+              onClick={signOut}
+            >
+              Log Out
+            </button>
+          </>
+        ) : (
+          <>
+            <NavLink to="/login"  className="tt-nav-link">Login</NavLink>
+            <Link    to="/signup" className="tt-btn tt-btn-primary tt-btn-sm">Sign Up</Link>
+          </>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function AppShell() {
   return (
     <div className="tt-root">
+      <Nav />
 
-      {/* ── Nav ── */}
-      <nav className="tt-nav">
-        <span className="tt-nav-logo">
-          Toon<span className="tt-nav-logo-accent">Tier</span>
-        </span>
-      </nav>
+      <Routes>
+        <Route path="/"        element={<Home />} />
+        <Route path="/login"   element={<Login />} />
+        <Route path="/signup"  element={<Signup />} />
+        <Route path="/cartoons"    element={<Cartoons />} />
+        <Route path="/cartoons/:id" element={<CartoonDetail />} />
 
-      {/* ── Hero ── */}
-      <section className="tt-hero">
-        <div className="tt-hero-glow tt-glow-pink" />
-        <div className="tt-hero-glow tt-glow-aqua" />
-        <div className="tt-hero-content">
-          <h1 className="tt-hero-title">
-            Toon<span className="tt-accent-pink">Tier</span>
-          </h1>
-          <p className="tt-hero-desc">
-            Toon Tier is a web application where users can track and review animated
-            shows they have watched. Users can rate cartoons, write short reviews, and
-            organize their viewing history. The app also aims to create a community for
-            people who share a passion for animation.
-          </p>
-        </div>
-        <div className="tt-hero-badge-grid" aria-hidden="true">
-          {['🎬', '⭐', '📺', '🏆', '🎨', '✏️'].map((emoji, i) => (
-            <span key={i} className="tt-emoji-badge" style={{ '--i': i }}>{emoji}</span>
-          ))}
-        </div>
-      </section>
+        <Route path="/cartoons/:id/review/new" element={
+          <ProtectedRoute><NewReview /></ProtectedRoute>
+        } />
+        <Route path="/cartoons/:id/review/:reviewId/edit" element={
+          <ProtectedRoute><EditReview /></ProtectedRoute>
+        } />
 
-      {/* ── Footer ── */}
+        <Route path="/profile" element={
+          <ProtectedRoute><Profile /></ProtectedRoute>
+        } />
+        <Route path="/profile/:userId" element={<PublicProfile />} />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
       <footer className="tt-footer">
         <span className="tt-nav-logo">
           Toon<span className="tt-nav-logo-accent">Tier</span>
         </span>
         <p>© {new Date().getFullYear()} ToonTier. Made with ❤️ for animation fans.</p>
       </footer>
-
     </div>
   );
 }
 
+function App() {
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <AppShell />
+      </AuthProvider>
+    </BrowserRouter>
+  );
+}
+
 export default App;
+

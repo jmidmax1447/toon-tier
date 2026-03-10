@@ -1,0 +1,34 @@
+.tt-notfound {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.tt-notfound-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tt-notfound-emoji {
+  font-size: 4rem;
+}
+
+.tt-notfound-code {
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -4px;
+  color: var(--pink);
+}
+
+.tt-notfound-msg {
+  font-size: 1.1rem;
+  color: rgba(255, 243, 240, 0.6);
+  max-width: 320px;
+  margin-bottom: 0.5rem;
+}

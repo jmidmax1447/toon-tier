@@ -1,0 +1,167 @@
+.tt-review-card {
+  background: rgba(255, 243, 240, 0.04);
+  border: 1px solid rgba(255, 243, 240, 0.09);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.15s;
+}
+
+.tt-review-card:hover {
+  border-color: rgba(255, 243, 240, 0.18);
+}
+
+/* ── Header: title + badge ── */
+.tt-review-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tt-review-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.tt-review-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--shell);
+  margin: 0;
+}
+
+/* ── Read-only stars ── */
+.tt-ro-stars {
+  display: flex;
+  gap: 0.05rem;
+}
+
+.tt-ro-star {
+  font-size: 1rem;
+  color: rgba(255, 243, 240, 0.15);
+}
+
+.tt-ro-star-on {
+  color: var(--gold);
+}
+
+/* ── Status badge ── */
+.tt-badge {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.tt-badge-aqua {
+  background: rgba(0, 212, 255, 0.12);
+  color: var(--aqua);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+}
+
+.tt-badge-gold {
+  background: rgba(253, 225, 45, 0.10);
+  color: var(--gold);
+  border: 1px solid rgba(253, 225, 45, 0.25);
+}
+
+.tt-badge-muted {
+  background: rgba(255, 243, 240, 0.06);
+  color: rgba(255, 243, 240, 0.4);
+  border: 1px solid rgba(255, 243, 240, 0.10);
+}
+
+/* ── Review snippet ── */
+.tt-review-card-snippet {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(255, 243, 240, 0.6);
+  margin: 0;
+}
+
+/* ── Footer: date + edit/delete actions ── */
+.tt-review-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 243, 240, 0.06);
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tt-review-card-date {
+  font-size: 0.78rem;
+  color: rgba(255, 243, 240, 0.3);
+}
+
+/* ── Inline action buttons (Edit / Delete / confirm row) ── */
+.tt-review-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tt-review-card-confirm-label {
+  font-size: 0.82rem;
+  color: rgba(255, 243, 240, 0.55);
+}
+
+.tt-btn-inline {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--aqua);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.tt-btn-inline:hover { opacity: 0.75; }
+.tt-btn-inline:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.tt-btn-inline-danger {
+  color: var(--pink);
+}
+
+/* ── Delete error message ── */
+.tt-review-card-delete-error {
+  font-size: 0.82rem;
+  color: #ff6eb4;
+  margin: 0;
+}
+
+/* ── Footer left: reviewer byline + date ── */
+.tt-review-card-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tt-reviewer-byline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.tt-reviewer-byline:hover { opacity: 0.75; }
+
+.tt-reviewer-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 243, 240, 0.65);
+}
+

@@ -1,0 +1,118 @@
+/* Shared styles for Login and Signup pages */
+
+.tt-auth-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.tt-auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 243, 240, 0.04);
+  border: 1px solid rgba(255, 243, 240, 0.10);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+}
+
+.tt-auth-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+  color: var(--shell);
+}
+
+.tt-auth-sub {
+  font-size: 0.9rem;
+  color: rgba(255, 243, 240, 0.5);
+  margin-bottom: 2rem;
+}
+
+.tt-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tt-field-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 243, 240, 0.7);
+  margin-top: 0.75rem;
+}
+
+.tt-input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  background: rgba(255, 243, 240, 0.06);
+  border: 1px solid rgba(255, 243, 240, 0.14);
+  border-radius: 10px;
+  color: var(--shell);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.tt-input::placeholder {
+  color: rgba(255, 243, 240, 0.3);
+}
+
+.tt-input:focus {
+  border-color: var(--aqua);
+}
+
+.tt-auth-switch {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: rgba(255, 243, 240, 0.5);
+}
+
+.tt-link {
+  color: var(--aqua);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.tt-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Validation error banner ── */
+.tt-auth-error {
+  padding: 0.65rem 0.9rem;
+  background: rgba(255, 0, 122, 0.12);
+  border: 1px solid rgba(255, 0, 122, 0.35);
+  border-radius: 10px;
+  color: #ff6eb4;
+  font-size: 0.88rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ── Error-state input highlight ── */
+.tt-input-error {
+  border-color: var(--pink) !important;
+}
+
+/* ── Success / confirmation card ── */
+.tt-auth-card-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tt-auth-success-icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Disabled button ── */
+.tt-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
