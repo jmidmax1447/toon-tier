@@ -6,11 +6,15 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  transition: border-color 0.15s;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
 }
 
 .tt-review-card:hover {
   border-color: rgba(255, 243, 240, 0.18);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 243, 240, 0.06);
 }
 
 /* ── Header: title + badge ── */
@@ -124,10 +128,13 @@
   color: var(--aqua);
   cursor: pointer;
   text-decoration: none;
-  transition: opacity 0.15s;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
-.tt-btn-inline:hover { opacity: 0.75; }
+.tt-btn-inline:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
 .tt-btn-inline:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .tt-btn-inline-danger {
@@ -154,10 +161,13 @@
   align-items: center;
   gap: 0.4rem;
   text-decoration: none;
-  transition: opacity 0.15s;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
-.tt-reviewer-byline:hover { opacity: 0.75; }
+.tt-reviewer-byline:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
 
 .tt-reviewer-name {
   font-size: 0.8rem;

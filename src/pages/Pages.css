@@ -2,12 +2,15 @@
 
 .tt-page {
   flex: 1;
-  padding: 3rem 1.5rem;
+  padding: 3rem 1.5rem 3.5rem;
 }
 
 .tt-page-inner {
-  max-width: 900px;
+  width: min(1120px, 100%);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
 }
 
 .tt-page-title {
@@ -31,6 +34,7 @@
   text-align: center;
   font-size: 0.95rem;
   color: rgba(255, 243, 240, 0.35);
+  background: rgba(255, 243, 240, 0.03);
 }
 
 /* ── Section header (title + action button side by side) ── */
@@ -38,8 +42,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .tt-section-title {

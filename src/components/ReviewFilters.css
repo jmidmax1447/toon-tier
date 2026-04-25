@@ -7,6 +7,7 @@
   border: 1px solid rgba(255, 243, 240, 0.08);
   border-radius: var(--radius-lg);
   margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
 /* ── Row: holds both filter groups side-by-side ── */
@@ -48,13 +49,15 @@
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
   white-space: nowrap;
 }
 
 .tt-filter-pill:hover {
   border-color: rgba(255, 243, 240, 0.3);
   color: var(--shell);
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(10, 10, 14, 0.22);
 }
 
 .tt-filter-pill-active {

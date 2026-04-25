@@ -1,9 +1,149 @@
-/* Hero CTA buttons — used on the Home page */
+.tt-home-hero {
+  position: relative;
+  flex: 1;
+  min-height: calc(100vh - 170px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.25rem;
+  overflow: hidden;
+}
+
+.tt-home-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.tt-home-bg-image {
+  position: absolute;
+  inset: -6%;
+  background-position: center;
+  background-size: cover;
+  filter: blur(18px) brightness(0.55);
+}
+
+.tt-home-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 15, 19, 0.55) 0%,
+    rgba(15, 15, 19, 0.74) 45%,
+    rgba(15, 15, 19, 0.9) 100%
+  );
+}
+
+.tt-home-tint-aqua::after,
+.tt-home-tint-pink::after,
+.tt-home-tint-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+}
+
+.tt-home-tint-aqua::after { background: radial-gradient(circle at 15% 15%, #00d4ff 0%, transparent 65%); }
+.tt-home-tint-pink::after { background: radial-gradient(circle at 85% 20%, #ff007a 0%, transparent 65%); }
+.tt-home-tint-gold::after { background: radial-gradient(circle at 50% 10%, #fde12d 0%, transparent 70%); }
+
+.tt-home-content {
+  position: relative;
+  z-index: 1;
+  width: min(860px, 100%);
+  text-align: center;
+}
+
+.tt-home-title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #fff;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.tt-home-subtitle {
+  margin: 1rem auto 0;
+  width: min(640px, 100%);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+}
 
 .tt-hero-actions {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 2.25rem;
+  margin-top: 2rem;
+}
+
+.tt-home-featured-frame {
+  position: relative;
+  width: min(620px, 100%);
+  margin: 1.6rem auto 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 16 / 9;
+}
+
+.tt-home-featured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9);
+}
+
+.tt-home-status {
+  margin-top: 1.1rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.96rem;
+}
+
+.tt-home-status-error {
+  color: #ffd4dc;
+}
+
+.tt-home-dots {
+  margin-top: 1rem;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.tt-home-dot {
+  width: 9px;
+  height: 9px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.tt-home-dot:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.tt-home-dot.is-active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+@media (max-width: 700px) {
+  .tt-home-hero {
+    min-height: calc(100vh - 150px);
+    padding: 3rem 1rem;
+  }
+
+  .tt-home-featured-frame {
+    border-radius: 16px;
+    margin-top: 1.35rem;
+  }
 }

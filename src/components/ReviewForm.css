@@ -9,6 +9,11 @@
   flex-direction: column;
   gap: 0.35rem;
   margin-top: 1.75rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 243, 240, 0.08);
+  background: rgba(255, 243, 240, 0.03);
+  box-shadow: var(--shadow-sm);
 }
 
 .tt-review-form .tt-field-label {
@@ -49,12 +54,14 @@
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .tt-status-btn:hover {
   border-color: rgba(255, 243, 240, 0.4);
   color: var(--shell);
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(10, 10, 14, 0.22);
 }
 
 .tt-status-btn-active {

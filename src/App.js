@@ -1,6 +1,8 @@
-import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink, Link, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import PageWrapper from './components/PageWrapper';
 
 import Home        from './pages/Home';
 import Login       from './pages/Login';
@@ -53,31 +55,43 @@ function Nav() {
 }
 
 function AppShell() {
+  const location = useLocation();
+
   return (
     <div className="tt-root">
       <Nav />
 
-      <Routes>
-        <Route path="/"        element={<Home />} />
-        <Route path="/login"   element={<Login />} />
-        <Route path="/signup"  element={<Signup />} />
-        <Route path="/cartoons"    element={<Cartoons />} />
-        <Route path="/cartoons/:id" element={<CartoonDetail />} />
+      <main className="tt-route-stage">
+        <AnimatePresence mode="wait" initial={false}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+            <Route path="/login" element={<PageWrapper><Login /></PageWrapper>} />
+            <Route path="/signup" element={<PageWrapper><Signup /></PageWrapper>} />
+            <Route path="/cartoons" element={<PageWrapper><Cartoons /></PageWrapper>} />
+            <Route path="/cartoons/:id" element={<PageWrapper><CartoonDetail /></PageWrapper>} />
 
-        <Route path="/cartoons/:id/review/new" element={
-          <ProtectedRoute><NewReview /></ProtectedRoute>
-        } />
-        <Route path="/cartoons/:id/review/:reviewId/edit" element={
-          <ProtectedRoute><EditReview /></ProtectedRoute>
-        } />
+            <Route path="/cartoons/:id/review/new" element={
+              <PageWrapper>
+                <ProtectedRoute><NewReview /></ProtectedRoute>
+              </PageWrapper>
+            } />
+            <Route path="/cartoons/:id/review/:reviewId/edit" element={
+              <PageWrapper>
+                <ProtectedRoute><EditReview /></ProtectedRoute>
+              </PageWrapper>
+            } />
 
-        <Route path="/profile" element={
-          <ProtectedRoute><Profile /></ProtectedRoute>
-        } />
-        <Route path="/profile/:userId" element={<PublicProfile />} />
+            <Route path="/profile" element={
+              <PageWrapper>
+                <ProtectedRoute><Profile /></ProtectedRoute>
+              </PageWrapper>
+            } />
+            <Route path="/profile/:userId" element={<PageWrapper><PublicProfile /></PageWrapper>} />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+            <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+          </Routes>
+        </AnimatePresence>
+      </main>
 
       <footer className="tt-footer">
         <span className="tt-nav-logo">
@@ -100,4 +114,3 @@ function App() {
 }
 
 export default App;
-

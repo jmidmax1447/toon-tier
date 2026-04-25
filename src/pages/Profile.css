@@ -65,6 +65,14 @@
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.tt-profile-edit-form:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 243, 240, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
 .tt-profile-edit-form .tt-field-label {

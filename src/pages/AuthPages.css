@@ -11,10 +11,18 @@
 .tt-auth-card {
   width: 100%;
   max-width: 420px;
-  background: rgba(255, 243, 240, 0.04);
-  border: 1px solid rgba(255, 243, 240, 0.10);
+  background: rgba(255, 243, 240, 0.045);
+  border: 1px solid rgba(255, 243, 240, 0.11);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.tt-auth-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 243, 240, 0.2);
 }
 
 .tt-auth-title {
@@ -46,14 +54,19 @@
 
 .tt-input {
   width: 100%;
-  padding: 0.65rem 0.9rem;
-  background: rgba(255, 243, 240, 0.06);
-  border: 1px solid rgba(255, 243, 240, 0.14);
-  border-radius: 10px;
+  padding: 0.72rem 0.95rem;
+  background: rgba(255, 243, 240, 0.07);
+  border: 1px solid rgba(255, 243, 240, 0.15);
+  border-radius: var(--radius);
   color: var(--shell);
   font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.15s;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.tt-input:hover {
+  border-color: rgba(255, 243, 240, 0.28);
+  background: rgba(255, 243, 240, 0.085);
 }
 
 .tt-input::placeholder {
@@ -62,6 +75,8 @@
 
 .tt-input:focus {
   border-color: var(--aqua);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+  background: rgba(255, 243, 240, 0.11);
 }
 
 .tt-auth-switch {
@@ -115,4 +130,5 @@
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
